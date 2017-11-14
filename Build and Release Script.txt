@@ -1,0 +1,26 @@
+Jenkins Script/CI/CD/Automated Deployments:
+
+What is your expericence in Jenkins/What is your deployment process.??
+
+
+Application stack:- Java 8 Application
+App Server user:- Tomcat 8
+Server environment:- RedHat 7
+Maven 3.5
+Jenkins 2.71
+Region:- US West - North California.
+t2.medium, m4.large instances
+Nexus OSS 3.2.0-01
+
+
+I have used mainly Jenkins for continuous intergation and continuous deployment. We have Java microservices which run on Amazon EC2 machine and serve as backends for our front end application. We run them on tomcat 8. We automate the builds using maven. Jenkins serves as an orchestrator mainly. We have pipelines for every application and every environment. Talking about lets say patient billing application deployment in one environment, we have a pipeline which lets use do a couple of steps in an integrated view. First Step, check out the code from the repo, sonar cube test on the code, selenium tests on the code, JUNIT testing using jUNit plugin in Jenkins, cobertura step for code coverage check , artifact creation. Finally we use ansible playbooks to deploy to machines and also push to artifactory using the nexus artifact uploader plugin., either standalone machines for dev environment, or elastic load balancer in case of production environment. We connect these builds with upstream and downstream plugins and we have parameters which we feed in to  the pipeline like specific branch to be deployed.
+The last step is restart of tomcat on the target machine using ansible.
+
+I have also done script based automation (bash script). We had parametrized scripts for checkout , maven build and then deploy to target machines.  Most of them were shell scrtips which were executed from jenkins execute shell block . Jenkins had full sudo access and we used to to directly call these scripts from within jenkins execute shell. We also used to upload to nexus using the maven deploy command.
+
+
+Monitoring:- Nagios for infrastucture moniotring like Disk CPU Network IO etc.
+
+New Relic for application monitoring. 
+
+Cloud watch for ELB level metrics	
