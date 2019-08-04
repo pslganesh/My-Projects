@@ -1,0 +1,16 @@
+#Ansible playbook for creation users and copying files into user home directory
+---
+- name: Creation and Copying
+  hosts: all
+  tasks:
+   - name: creation of users
+     user:
+      name: "{{a}}"
+      password: "{{b}}"
+      home: "{{c}}"
+      uid: "{{d}}"
+   - name: Copying files to user home directory
+     copy:
+      src: "{{e}}"
+      dest: "{{f}}"
+...

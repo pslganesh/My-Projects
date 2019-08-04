@@ -1,0 +1,10 @@
+---
+- name: Install firewalld on all managed nodes
+  hosts: all
+  tasks:
+   - name: Install firewalld
+     apt:
+      name: firewalld
+      state: absent
+      update_cache: no
+...

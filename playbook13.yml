@@ -1,0 +1,20 @@
+---
+#Ansible playbook to check if directory is present if present create a file in it.
+- name: check if dir is present or not
+  hosts: all
+  tasks:
+   - name: check if dir is present or not
+     stat:
+      path: /tmp/ganesh
+     register: results
+   - name: display output of the above stat modules
+     debug:
+      var: results
+   - name: create a file
+     file:
+      name: /var/file7
+      state: touch
+     when:
+      results.stat.exists == true
+...
+

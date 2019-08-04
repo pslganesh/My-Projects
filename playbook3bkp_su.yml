@@ -1,0 +1,32 @@
+---
+- name: configuring tomcat8
+  hosts: all
+  become: yes
+  become_user: root
+  become_method: su
+  tasks:
+   - name: install tomcat8
+     apt:
+      name: tomcat8
+      state: present
+   - name: install tomcat8-admin
+     apt:
+      name: tomcat8-admin
+      state: present
+   - name: edit tomcat-users.xml file
+     copy:
+      content: <user username="ganesh" password="ganesh123" roles="manager-script"/>
+      dest: "/etc/tomcat8/tomcat-users.xml"
+   - name: restart of tomcat8
+     service:
+      name: tomcat8
+      state: restarted
+   - name: change url response of server1
+     uri:
+      url: http://192.168.29.217:8080
+      status: 200
+   - name: change url response of server2
+     uri:
+      url: http://192.168.29.182:8080
+      status: 200
+...

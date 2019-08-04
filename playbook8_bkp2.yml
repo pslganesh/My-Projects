@@ -1,0 +1,30 @@
+---
+- name: Configure apache2
+  hosts: all
+  tasks:
+   - name: install apache2
+     apt:
+      name: apache2
+      state: absent
+      purge: yes
+#     notify: check url response
+#   - name: edit index.html file
+#     copy:
+#      content: "My name is Ganesh \n"
+#                "Giri Charan,Jaya Akshira,Joshvika and Shiva kumari \n"
+#      dest: "/var/www/html/index.html"
+#     notify: restart apache2
+#  handlers:
+#   - name: restart apache2
+#     service:
+#      name: apache2
+#      state: restarted
+#- name: check url response
+#     uri:
+#      url: "{{item}}"
+#      status: 200
+#     with_items:
+#      - http://192.168.29.217
+#      - http://192.168.29.182
+...
+

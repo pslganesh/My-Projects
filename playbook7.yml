@@ -1,0 +1,22 @@
+#write program for register and debug
+---
+- name: creation a file
+  hosts: all
+  tasks:
+   - name: creation of file
+     file:
+      name: /tmp/file8
+      state: touch
+     register: a
+   - name: display output of file module
+     debug:
+      var: a
+   - name: Copy a file
+     copy:
+      src: /etc/passwd
+      dest: /tmp
+     register: b
+   - name: display output of copy moudle
+     debug:
+      var: b
+...
