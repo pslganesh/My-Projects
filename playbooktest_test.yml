@@ -1,0 +1,10 @@
+---
+- name: Installing necessary s/w packages
+  hosts: all
+  tasks:
+   - name: Install s/w packages
+     apt: 
+      name: "{{item.a}}"
+      state: present
+      update_cache: "{{item.b}}"
+
