@@ -1,3 +1,3 @@
 select name,open_mode from v$database
 
-select * from $instance
+select * from v$instance
