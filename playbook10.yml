@@ -10,4 +10,8 @@
      docker_container:
       name: webserver
       state: stopped
+   - name: Remove the tomcat container
+     docker_container:
+      name: webserver
+      state: absent
   ...
