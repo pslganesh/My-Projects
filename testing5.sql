@@ -1,1 +1,1 @@
-select * fron fnd_nodes
+select * from fnd_nodes
