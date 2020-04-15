@@ -1,1 +1,2 @@
 select * from dba_users
+select * from fnd_user
